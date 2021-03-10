@@ -24,6 +24,7 @@ class CalendarStrip extends Component {
     innerStyle: PropTypes.any,
     calendarColor: PropTypes.string,
     hideArrow: PropTypes.bool,
+    paddingContainer: PropTypes.number,
     numDaysInWeek: PropTypes.number,
     scrollable: PropTypes.bool,
     scrollerPaging: PropTypes.bool,
@@ -120,6 +121,7 @@ class CalendarStrip extends Component {
     useNativeDriver: true,
     scrollToOnSetSelectedDate: true,
     upperCaseDays: true,
+    paddingContainer: 16
   };
 
   constructor(props) {
@@ -571,7 +573,7 @@ class CalendarStrip extends Component {
   }
 
   render() {
-    const { hideArrow } = this.props
+    const { hideArrow, paddingContainer } = this.props
     // calendarHeader renders above or below of the dates & left/right selectors if dates are shown.
     // However if dates are hidden, the header shows between the left/right selectors.
     return (
@@ -600,7 +602,7 @@ class CalendarStrip extends Component {
                 weekStartDate={this.state.weekStartDate}
                 weekEndDate={this.state.weekEndDate}
                 size={this.state.selectorSize}
-              /> : <View style={{ width: 16 }} />
+              /> : <View style={{ width: paddingContainer }} />
             }
 
 
@@ -623,7 +625,7 @@ class CalendarStrip extends Component {
                 weekStartDate={this.state.weekStartDate}
                 weekEndDate={this.state.weekEndDate}
                 size={this.state.selectorSize}
-              /> : <View style={{ width: 16 }} />
+              /> : <View style={{ width: paddingContainer }} />
             }
 
           </View>
